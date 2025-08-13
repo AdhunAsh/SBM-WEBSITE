@@ -14,7 +14,7 @@ const Hero = () => {
         </div>
 
         <div>
-            <img className='w-full h-[500px] mt-10' src= {logi4} alt=''/>
+            <img className='w-auto mt-10' src= {logi4} alt=''/>
         </div>
 
     </div>

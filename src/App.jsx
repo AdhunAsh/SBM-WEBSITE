@@ -1,16 +1,19 @@
 import React from 'react'
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Footer from './components/Footer'
-import Choose from './components/Choose'
+import Home from './pages/Home'
+import About from './pages/About'
 
 const App = () => {
   return (
     <div className=' px-25 py-3'>
-        <Navbar />
-        <Hero />
-        <Choose />
+      <Navbar />
 
+      {/* Routes */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
     </div>
   )
 }

@@ -29,7 +29,7 @@ const Choose = () => {
             </div>
 
             <div className='px-4'>
-                <img className='w-8' src={tag} alt="" />
+                <img className='w-4 sm:w-6 md:w-8 ' src={tag} alt="" />
                 <p className='mt-7 font-semibold'>Competetive Rules</p>
                 <p className='mt-5 text-gray-500 font-medium'>Sometimes features require a short description. This can be detailed description or just a short text.</p>
                 <p className='mt-5 text-blue-600 font-medium'>Learn More →</p>
@@ -38,7 +38,7 @@ const Choose = () => {
 
         <hr className='mt-15 border-gray-300'></hr>
 
-        <p className='mt-15 font-bold text-4xl leading-10'>The tools you need to win<br></br> and keep more clients</p>
+        <p className='mt-15 font-bold text-4xl leading-10'>Services We Offer</p>
 
         <div className='flex flex-row mt-10 justify-between gap-5'>
             <div className='px-4'>
@@ -56,26 +56,6 @@ const Choose = () => {
             <div className='px-4'>
                 <img className='w-9' src={truck} alt="" />
                 <p className='mt-7 font-semibold'>Inland Cargo Service</p>
-                <p className='mt-5 text-gray-500 font-medium'>Sometimes features require a short description. This can be detailed description or just a short text.</p>
-            </div>
-        </div>
-
-        <div className='flex flex-row mt-10 justify-between gap-5'>
-            <div className='px-4'>
-                <img className='w-9' src={mine} alt="" />
-                <p className='mt-7 font-semibold'>Heavy Equipment Services</p>
-                <p className='mt-5 text-gray-500 font-medium'>Sometimes features require a short description. This can be detailed description or just a short text.</p>
-            </div>
-
-            <div className='px-4'>
-                <img className='w-9' src={car} alt="" />
-                <p className='mt-7 font-semibold'>Car Shipping Services</p>
-                <p className='mt-5 text-gray-500 font-medium'>Sometimes features require a short description. This can be detailed description or just a short text.</p>
-            </div>
-
-            <div className='px-4'>
-                <img className='w-9' src={container} alt="" />
-                <p className='mt-7 font-semibold'>Container Sea Cargo</p>
                 <p className='mt-5 text-gray-500 font-medium'>Sometimes features require a short description. This can be detailed description or just a short text.</p>
             </div>
         </div>
