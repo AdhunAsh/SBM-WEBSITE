@@ -1,22 +1,17 @@
 import React from 'react'
-import logi4 from '../assets/logis/logi4.jpg'
+import logi1 from '../assets/logis/logi11.jpg'
 
 const Hero = () => {
   return (
-    <div className='flex flex-col'>
-        <div className='flex flex-col xl:flex-row '>
-            <div className='w-3/4 mt-10'>
-                <p className='text-5xl font-semibold leading-13'>We provide logistics <br></br> solution tailor-made <br></br>for individual customer!</p>
-            </div>
-            <div className='w-1/4 mt-31'>
-                <p className='text-md text-gray-500'>SBM Cargo Services provides customized services for customers around the world from 50+ leading industries.</p>
+    <div className='relative min-h-screen'>
+        <img className='w-full h-screen object-cover' src={logi1} alt=''/>
+        <div className='absolute inset-0 bg-gradient-to-t from-black/40 to-transparent'></div>
+        <div className='absolute inset-0 flex items-center px-4 md:px-8 lg:px-16'>
+            <div className='max-w-4xl'>
+                <h1 className='text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight'>"Reliable Cargo & Logistics Services – On Time, Every Time"</h1>
+                <p className='lato-regular text-lg md:text-xl text-gray-100 leading-relaxed max-w-2xl bg-black/20 p-4 rounded-lg backdrop-blur-[3px]'>We connect businesses and customers worldwide with fast, secure, and affordable shipping solutions. Whether it's a single package or bulk cargo, we ensure safe delivery to your destination.</p>
             </div>
         </div>
-
-        <div>
-            <img className='w-auto mt-10' src= {logi4} alt=''/>
-        </div>
-
     </div>
   )
 }

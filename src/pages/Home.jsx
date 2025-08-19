@@ -1,17 +1,23 @@
 import React from 'react'
 import Hero from '../components/Hero'
-import Footer from '../components/Footer'
-import Choose from '../components/Choose'
-import Sample from '../components/Sample'
 import Contact from '../components/Contact'
+import Market from '../components/Market'
+import Solutions from '../components/Solutions'
+import Responsibilities from '../components/Responsibilities'
+import Terms from '../components/Terms'
+import Resources from '../components/Resources'
+import Choose from '../components/Choose'
 
 const Home = () => {
   return (
-    <div>
-        <Hero />
-        <Choose />
-        <Sample />
-        <Contact />
+    <div className='bg-white' id='home'>
+      <Hero />
+      <div id='markets'><Market /></div>
+      <div id='solutions'><Solutions /></div>
+      <div id='responsibilities'><Responsibilities /></div>
+      <div id='terms'><Terms /></div>
+      <div id='resources'><Resources /></div>
+      <div id='contact'><Contact /></div>
     </div>
   )
 }

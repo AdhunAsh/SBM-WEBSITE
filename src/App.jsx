@@ -6,7 +6,7 @@ import About from './pages/About'
 
 const App = () => {
   return (
-    <div className=' px-25 py-3'>
+    <div>
       <Navbar />
 
       {/* Routes */}
@@ -19,3 +19,5 @@ const App = () => {
 }
 
 export default App
+
+//  px-25 py-3
