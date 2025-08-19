@@ -3,6 +3,7 @@ import Hero from '../components/Hero'
 import Footer from '../components/Footer'
 import Choose from '../components/Choose'
 import Sample from '../components/Sample'
+import Contact from '../components/Contact'
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
         <Hero />
         <Choose />
         <Sample />
+        <Contact />
     </div>
   )
 }

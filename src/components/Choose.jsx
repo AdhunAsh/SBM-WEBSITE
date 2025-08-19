@@ -60,7 +60,7 @@ const Choose = () => {
             </div>
         </div>
 
-        <hr className='mt-15 mb-15 border-gray-300'></hr>
+        <hr className='mt-15 mb-5 border-gray-300'></hr>
 
     </div>
   )
