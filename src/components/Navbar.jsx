@@ -7,7 +7,7 @@ const Navbar = () => {
 
     return (
         <div className="flex justify-between items-center font-bold w-full px-5 py-2 z-50 sticky top-0 bg-white">
-            <img className="h-10" src={logo} alt="log.png" />
+            <p className="text-gray-800 poppins text-2xl font-bold">SBM CARGO SERVICES</p>
             <nav>
                 <ul className="hidden xl:flex gap-8 text-md text-gray-600 cursor-pointer">
                     <a href="#home" className="scroll-smooth">HOME</a>
