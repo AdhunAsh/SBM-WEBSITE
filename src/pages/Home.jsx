@@ -7,7 +7,7 @@ import Responsibilities from '../components/Responsibilities'
 import Terms from '../components/Terms'
 import Resources from '../components/Resources'
 import GlobalShippingDottedMap from '../components/worldmap'
-import Choose from '../components/Choose'
+
 
 const Home = () => {
   return (
