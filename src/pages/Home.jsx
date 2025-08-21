@@ -10,10 +10,11 @@ import Choose from '../components/Choose'
 
 const Home = () => {
   return (
-    <div className='bg-white' id='home'>
+    <div className='bg-gradient-to-br from-slate-950 via-blue-950 to-black' id='home'>
       <Hero />
       <div id='markets'><Market /></div>
       <div id='solutions'><Solutions /></div>
+      <div id='choose'><Choose /></div>
       <div id='responsibilities'><Responsibilities /></div>
       <div id='terms'><Terms /></div>
       <div id='resources'><Resources /></div>
