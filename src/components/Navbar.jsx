@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import logo from "../assets/logo.png";
+import menu_icon from '../assets/icons/men.png'; // Make sure this path is correct
+// import dropdown_icon from "../assets/dropdown_icon.png"; // Make sure this path is correct
 import { Link, NavLink } from "react-router-dom";
 
 const Nav = () => {
@@ -19,7 +21,7 @@ const Nav = () => {
 
     return (
         <nav
-            className={`fixed  top-0 left-0 w-full flex items-center justify-between px-8 py-2 z-50 transition-all duration-300 ${
+            className={`fixed top-0 left-0 w-full flex items-center justify-between px-8 py-2 z-50 transition-all duration-300 ${
                 scrolled
                     ? "bg-gray-900/70 backdrop-blur-md shadow-md"
                     : "bg-transparent"
@@ -30,8 +32,8 @@ const Nav = () => {
                 SBM Cargo Service
             </div>
 
-            {/* Nav Links */}
-            <div className="flex items-center space-x-6 bg-gray-200 rounded-full px-4 py-2 text-gray-700 font-semibold">
+            {/* Nav Links - hidden on mobile */}
+            <div className="hidden lg:flex items-center space-x-6 bg-gray-200 rounded-full px-4 py-2 text-gray-700 font-semibold">
                 <a
                     href="#home"
                     onClick={() => setActive("#home")}
@@ -113,65 +115,114 @@ const Nav = () => {
 
             <a
                 href="#contact"
-                className="flex items-center space-x-2 border border-white px-3 py-2 rounded-full hover:bg-orange-500 hover:border-orange-500 transition"
+                className="hidden lg:flex items-center space-x-2 border border-white px-3 py-2 rounded-full hover:bg-orange-500 hover:border-orange-500 transition"
             >
                 <span className="text-white">Contact now</span>
             </a>
-            
 
-            {/* for small screens */}
-            <div
-                className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${
-                    visible ? "w-full" : "w-0"
-                }`}
+            {/* Menu Icon - only on mobile */}
+            <button
+                className="block lg:hidden focus:outline-none"
+                onClick={() => setVisible(true)}
             >
-                <div className="flex flex-col text-gray-600">
+                <img src={menu_icon} alt="menu" className="w-8 h-8" />
+            </button>
+
+            {/* Sidebar for mobile */}
+            <div
+                className={`fixed top-0 right-0 h-full bg-white z-50 transition-all duration-300 ${
+                    visible ? "w-64 shadow-lg" : "w-0"
+                } overflow-hidden`}
+            >
+                <div className="flex flex-col text-gray-600 h-full">
                     <div
                         onClick={() => setVisible(false)}
-                        className="flex items-center gap-4 p-3"
+                        className="flex items-center gap-4 p-3 cursor-pointer"
                     >
                         <img
-                            src={dropdown_icon}
+                            src=''
                             alt=""
                             className="h-4 rotate-180"
                         />
                         <p>Back</p>
                     </div>
-                    <NavLink
-                        onClick={() => setVisible(false)}
-                        className="py-2 pl-6 border"
-                        to="/"
+                    <a
+                        href="#home"
+                        onClick={() => {
+                            setActive("#home");
+                            setVisible(false);
+                        }}
+                        className="py-2 pl-6 border-b"
                     >
-                        HOME
-                    </NavLink>
-                    <NavLink
-                        onClick={() => setVisible(false)}
-                        className="py-2 pl-6 border"
-                        to="/collection"
+                        Home
+                    </a>
+                    <a
+                        href="#markets"
+                        onClick={() => {
+                            setActive("#markets");
+                            setVisible(false);
+                        }}
+                        className="py-2 pl-6 border-b"
                     >
-                        COLLECTION
-                    </NavLink>
-                    <NavLink
-                        onClick={() => setVisible(false)}
-                        className="py-2 pl-6 border"
-                        to="/cart"
+                        Market
+                    </a>
+                    <a
+                        href="#solutions"
+                        onClick={() => {
+                            setActive("#solutions");
+                            setVisible(false);
+                        }}
+                        className="py-2 pl-6 border-b"
                     >
-                        CART
-                    </NavLink>
-                    <NavLink
-                        onClick={() => setVisible(false)}
-                        className="py-2 pl-6 border"
-                        to="/about"
+                        Solution
+                    </a>
+                    <a
+                        href="#about"
+                        onClick={() => {
+                            setActive("#about");
+                            setVisible(false);
+                        }}
+                        className="py-2 pl-6 border-b"
                     >
-                        ABOUT
-                    </NavLink>
-                    <NavLink
-                        onClick={() => setVisible(false)}
-                        className="py-2 pl-6 border"
-                        to="/contact"
+                        About Us
+                    </a>
+                    <a
+                        href="#responsibilities"
+                        onClick={() => {
+                            setActive("#responsibilities");
+                            setVisible(false);
+                        }}
+                        className="py-2 pl-6 border-b"
                     >
-                        CONTACT
-                    </NavLink>
+                        Responsibilities
+                    </a>
+                    <a
+                        href="#terms"
+                        onClick={() => {
+                            setActive("#terms");
+                            setVisible(false);
+                        }}
+                        className="py-2 pl-6 border-b"
+                    >
+                        Terms
+                    </a>
+                    <a
+                        href="#resources"
+                        onClick={() => {
+                            setActive("#resources");
+                            setVisible(false);
+                        }}
+                        className="py-2 pl-6 border-b"
+                    >
+                        Resources
+                    </a>
+                    <a
+                        href="#contact"
+                        onClick={() => setVisible(false)}
+                        className="py-2 pl-6 border-b"
+                    >
+                        Contact now
+                    </a>
                 </div>
             </div>
         </nav>

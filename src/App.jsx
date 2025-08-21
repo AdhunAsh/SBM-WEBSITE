@@ -8,7 +8,7 @@ import Nav from './components/Nav';
 const App = () => {
   return (
     <div>
-      <Nav />
+      <Navbar />
       {/* Routes */}
       <Routes>
         <Route path="/" element={<Home />} />
