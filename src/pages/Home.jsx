@@ -12,7 +12,7 @@ import Choose from '../components/Choose'
 const Home = () => {
   return (
     <div className='bg-white ' id='home'>
-      <div className='bg-white px-5 '><Hero /></div>
+      <Hero />
       <div id='markets'><Market /></div>
       <div id='solutions'><Solutions /></div>
       <GlobalShippingDottedMap />

@@ -117,6 +117,7 @@ const Nav = () => {
             >
                 <span className="text-white">Contact now</span>
             </a>
+            
         </nav>
     );
 };

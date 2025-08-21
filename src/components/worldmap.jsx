@@ -17,7 +17,7 @@ const DESTS = [
 
 export default function GlobalShippingDottedMap() {
   return (
-    <section className="bg-blue-700 text-white py-16 px-6 overflow-hidden">
+    <section className="bg-blue-700 text-white py-8 px-6 overflow-hidden">
       <div className="text-center max-w-3xl mx-auto">
         <p className="uppercase text-sm/5 opacity-80">Industry Knowledge</p>
         <h2 className="text-3xl md:text-5xl font-bold mt-2">
@@ -26,7 +26,7 @@ export default function GlobalShippingDottedMap() {
         </h2>
       </div>
 
-      <div className="mt-12 bg-blue-500 p-2">
+      <div className="mt-10 bg-blue-700 p-2">
         {/* Use a wrapper to keep the SVG crisp and centered */}
         <div className="mx-auto max-w-6xl">
           <ComposableMap
@@ -131,7 +131,7 @@ export default function GlobalShippingDottedMap() {
       </div>
 
       {/* Stats area (optional – reuse yours) */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center mt-16">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center z-50 mt-2">
         {[
           { number: "$5b+", title: "Equity value", desc: "More than $5b USD in equity value created" },
           { number: "932", title: "Ventures", desc: "Built, invested in and accelerated ventures globally" },

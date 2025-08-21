@@ -1,30 +1,181 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import logo from "../assets/logo.png";
+import { Link, NavLink } from "react-router-dom";
 
-const Navbar = () => {
+const Nav = () => {
+    const [visible, setVisible] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [active, setActive] = useState("#home");
 
     useEffect(() => {
         const handleScroll = () => {
             const heroHeight = window.innerHeight * 0.8;
             setScrolled(window.scrollY > heroHeight);
         };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
-        <div className="flex justify-between items-center font-bold w-full px-5 py-2 z-50 sticky top-0 backdrop-blur-lg bg-white/30">
-            <p className="text-gray-800 poppins text-2xl font-bold">SBM CARGO</p>
-            <nav>
-                <ul className="hidden xl:flex gap-8 text-md text-gray-700 cursor-pointer">
-                    <a href="#home" className="scroll-smooth">Home</a>
-                    <NavLink to="/about">About</NavLink>
-                    <a href="#contact" className="scroll-smooth">Contact</a>
-                </ul>
-            </nav>
-        </div>
+        <nav
+            className={`fixed  top-0 left-0 w-full flex items-center justify-between px-8 py-2 z-50 transition-all duration-300 ${
+                scrolled
+                    ? "bg-gray-900/70 backdrop-blur-md shadow-md"
+                    : "bg-transparent"
+            }`}
+        >
+            {/* Logo */}
+            <div className="text-xl font-bold text-white">
+                SBM Cargo Service
+            </div>
+
+            {/* Nav Links */}
+            <div className="flex items-center space-x-6 bg-gray-200 rounded-full px-4 py-2 text-gray-700 font-semibold">
+                <a
+                    href="#home"
+                    onClick={() => setActive("#home")}
+                    className={`hover:text-gray-400 transition ${
+                        active === "#home"
+                            ? "text-white px-4 py-1.5 rounded-full bg-gray-800 font-semibold"
+                            : ""
+                    }`}
+                >
+                    Home
+                </a>
+                <a
+                    href="#markets"
+                    onClick={() => setActive("#markets")}
+                    className={`hover:text-orange-500 transition ${
+                        active === "#markets"
+                            ? "text-white px-4 py-1.5 rounded-full bg-gray-800 font-semibold"
+                            : ""
+                    }`}
+                >
+                    Market
+                </a>
+                <a
+                    href="#solutions"
+                    onClick={() => setActive("#solutions")}
+                    className={`hover:text-orange-500 transition ${
+                        active === "#solutions"
+                            ? "text-white px-4 py-1.5 rounded-full bg-gray-800 font-semibold"
+                            : ""
+                    }`}
+                >
+                    Solution
+                </a>
+                <a
+                    href="#about"
+                    onClick={() => setActive("#about")}
+                    className={`hover:text-orange-500 transition ${
+                        active === "#about"
+                            ? "text-white px-4 py-1.5 rounded-full bg-gray-800 font-semibold"
+                            : ""
+                    }`}
+                >
+                    About Us
+                </a>
+                <a
+                    href="#responsibilities"
+                    onClick={() => setActive("#responsibilities")}
+                    className={`hover:text-orange-500 transition ${
+                        active === "#responsibilities"
+                            ? "text-white px-4 py-1.5 rounded-full bg-gray-800 font-semibold"
+                            : ""
+                    }`}
+                >
+                    Responsibilities
+                </a>
+                <a
+                    href="#terms"
+                    onClick={() => setActive("#terms")}
+                    className={`hover:text-orange-500 transition ${
+                        active === "#terms"
+                            ? "text-white px-4 py-1.5 rounded-full bg-gray-800 font-semibold"
+                            : ""
+                    }`}
+                >
+                    Terms
+                </a>
+                <a
+                    href="#resources"
+                    onClick={() => setActive("#resources")}
+                    className={`hover:text-orange-500 transition ${
+                        active === "#resources"
+                            ? "text-white px-4 py-1.5 rounded-full bg-gray-800 font-semibold"
+                            : ""
+                    }`}
+                >
+                    Resources
+                </a>
+            </div>
+
+            <a
+                href="#contact"
+                className="flex items-center space-x-2 border border-white px-3 py-2 rounded-full hover:bg-orange-500 hover:border-orange-500 transition"
+            >
+                <span className="text-white">Contact now</span>
+            </a>
+            
+
+            {/* for small screens */}
+            <div
+                className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${
+                    visible ? "w-full" : "w-0"
+                }`}
+            >
+                <div className="flex flex-col text-gray-600">
+                    <div
+                        onClick={() => setVisible(false)}
+                        className="flex items-center gap-4 p-3"
+                    >
+                        <img
+                            src={dropdown_icon}
+                            alt=""
+                            className="h-4 rotate-180"
+                        />
+                        <p>Back</p>
+                    </div>
+                    <NavLink
+                        onClick={() => setVisible(false)}
+                        className="py-2 pl-6 border"
+                        to="/"
+                    >
+                        HOME
+                    </NavLink>
+                    <NavLink
+                        onClick={() => setVisible(false)}
+                        className="py-2 pl-6 border"
+                        to="/collection"
+                    >
+                        COLLECTION
+                    </NavLink>
+                    <NavLink
+                        onClick={() => setVisible(false)}
+                        className="py-2 pl-6 border"
+                        to="/cart"
+                    >
+                        CART
+                    </NavLink>
+                    <NavLink
+                        onClick={() => setVisible(false)}
+                        className="py-2 pl-6 border"
+                        to="/about"
+                    >
+                        ABOUT
+                    </NavLink>
+                    <NavLink
+                        onClick={() => setVisible(false)}
+                        className="py-2 pl-6 border"
+                        to="/contact"
+                    >
+                        CONTACT
+                    </NavLink>
+                </div>
+            </div>
+        </nav>
     );
 };
 
-export default Navbar;
+export default Nav;
