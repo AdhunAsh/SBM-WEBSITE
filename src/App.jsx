@@ -3,12 +3,12 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import About from './pages/About'
+import Nav from './components/Nav';
 
 const App = () => {
   return (
     <div>
-      <Navbar />
-
+      <Nav />
       {/* Routes */}
       <Routes>
         <Route path="/" element={<Home />} />
