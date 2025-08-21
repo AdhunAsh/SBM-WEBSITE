@@ -77,10 +77,10 @@ const Nav = () => {
                     About Us
                 </a>
                 <a
-                    href="#terms"
-                    onClick={() => setActive("#terms")}
+                    href="#responsibilities"
+                    onClick={() => setActive("#responsibilities")}
                     className={`hover:text-orange-500 transition ${
-                        active === "#terms"
+                        active === "#responsibilities"
                             ? "text-white px-4 py-1.5 rounded-full bg-gray-800 font-semibold"
                             : ""
                     }`}
@@ -99,7 +99,7 @@ const Nav = () => {
                     Terms
                 </a>
                 <a
-                    href="#terms"
+                    href="#resources"
                     onClick={() => setActive("#resources")}
                     className={`hover:text-orange-500 transition ${
                         active === "#resources"
