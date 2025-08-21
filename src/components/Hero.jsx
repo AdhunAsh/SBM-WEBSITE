@@ -9,9 +9,9 @@ const Hero = () => {
   }
 
   return (
-    <div className='relative min-h-screen'>
-        <img className='w-full h-screen object-cover' src={logi1} alt=''/>
-        <div className='absolute inset-0 bg-gradient-to-t from-black/40 to-transparent'></div>
+    <div className='relative min-h-screen '>
+        <img className='w-full h-screen object-cover rounded-3xl' src={logi1} alt=''/>
+        <div className='absolute inset-0 '></div>
         <div className='absolute inset-0 flex items-center px-4 md:px-8 lg:px-16'>
             <div className='max-w-4xl'>
                 <h1 className='text-3xl md:text-5xl lg:text-[55px] font-sans text-white mb-6 leading-tight'>Reliable Cargo & Logistics Services – On Time, Every Time</h1>
