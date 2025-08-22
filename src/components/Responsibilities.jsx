@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import containersImage from '../assets/logis/containers.jpg'
+import containersImage from '../assets/logis/containers.webp'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,35 +45,33 @@ const Responsibilities = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Title animation with split effect
       gsap.fromTo(titleRef.current,
-        { opacity: 0, y: 60 },
+        { opacity: 0, y: 40 },
         {
           opacity: 1,
           y: 0,
-          duration: 1.2,
-          ease: "power3.out",
+          duration: 0.8,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: titleRef.current,
-            start: "top 80%",
+            start: "top 85%",
             toggleActions: "play none none reverse"
           }
         }
       );
 
-      // Cards animation with stagger
-      gsap.fromTo(cardsRef.current,
-        { opacity: 0, y: 100, rotationY: 45 },
+      gsap.fromTo(cardsRef.current.filter(Boolean),
+        { opacity: 0, y: 60, scale: 0.95 },
         {
           opacity: 1,
           y: 0,
-          rotationY: 0,
-          duration: 1,
-          stagger: 0.3,
+          scale: 1,
+          duration: 0.7,
+          stagger: 0.1,
           ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 60%",
+            start: "top 75%",
             toggleActions: "play none none reverse"
           }
         }
@@ -103,7 +101,7 @@ const Responsibilities = () => {
               <div
                 key={idx}
                 ref={el => cardsRef.current[idx] = el}
-                className="group p-8 bg-white/10 backdrop-blur-2xl rounded-3xl border border-white/20 shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:bg-white/20 hover:border-white/40"
+                className="group p-8 bg-white/10 backdrop-blur-2xl rounded-3xl border border-white/20 shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/20 hover:border-white/40 will-change-transform"
               >
                 <div className="flex items-center mb-6">
                   <div className={`w-16 h-16 ${item.color} rounded-2xl flex items-center justify-center mr-6 shadow-lg transition-transform duration-300`}>

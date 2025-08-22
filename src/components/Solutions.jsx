@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import logi1 from "../assets/logis/logi1.jpg";
-import logi2 from "../assets/logis/logi2.jpg";
-import logi4 from "../assets/logis/logi4.jpg";
-import logi5 from "../assets/logis/logi5.jpg";
-import logi9 from "../assets/logis/logi9.jpg";
-import logi11 from "../assets/logis/logi11.jpg";
+import logi1 from "../assets/logis/logi1.webp";
+import logi2 from "../assets/logis/logi2.webp";
+import logi4 from "../assets/logis/logi4.webp";
+import logi5 from "../assets/logis/logi5.webp";
+import logi9 from "../assets/logis/logi9.webp";
+import logi11 from "../assets/logis/logi11.webp";
 import flightIcon from "../assets/icons/flight.png";
 import cargoShipIcon from "../assets/icons/cargo-ship.png";
 import cargoTruckIcon from "../assets/icons/cargo-truck.png";
@@ -66,36 +66,33 @@ const Solutions = () => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Title animation
             gsap.fromTo(titleRef.current, 
-                { opacity: 0, y: 50 },
+                { opacity: 0, y: 40 },
                 { 
                     opacity: 1, 
                     y: 0, 
-                    duration: 1,
+                    duration: 0.8,
+                    ease: "power2.out",
                     scrollTrigger: {
                         trigger: titleRef.current,
-                        start: "top 80%",
-                        end: "bottom 20%",
+                        start: "top 85%",
                         toggleActions: "play none none reverse"
                     }
                 }
             );
 
-            // Cards stagger animation
-            gsap.fromTo(cardsRef.current,
-                { opacity: 0, y: 80, scale: 0.8 },
+            gsap.fromTo(cardsRef.current.filter(Boolean),
+                { opacity: 0, y: 60, scale: 0.9 },
                 {
                     opacity: 1,
                     y: 0,
                     scale: 1,
-                    duration: 0.8,
-                    stagger: 0.2,
+                    duration: 0.7,
+                    stagger: 0.1,
                     ease: "power2.out",
                     scrollTrigger: {
                         trigger: sectionRef.current,
-                        start: "top 70%",
-                        end: "bottom 30%",
+                        start: "top 75%",
                         toggleActions: "play none none reverse"
                     }
                 }

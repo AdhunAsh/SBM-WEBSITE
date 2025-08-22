@@ -59,39 +59,33 @@ const Terms = () => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Title animation
             gsap.fromTo(titleRef.current,
                 { opacity: 0, y: 40 },
                 {
                     opacity: 1,
                     y: 0,
-                    duration: 1,
+                    duration: 0.8,
                     ease: "power2.out",
                     scrollTrigger: {
                         trigger: titleRef.current,
-                        start: "top 80%",
+                        start: "top 85%",
                         toggleActions: "play none none reverse"
                     }
                 }
             );
 
-            // Cards grid animation
-            gsap.fromTo(cardsRef.current,
-                { opacity: 0, y: 60, scale: 0.9 },
+            gsap.fromTo(cardsRef.current.filter(Boolean),
+                { opacity: 0, y: 50, scale: 0.95 },
                 {
                     opacity: 1,
                     y: 0,
                     scale: 1,
-                    duration: 0.8,
-                    stagger: {
-                        amount: 0.6,
-                        grid: "auto",
-                        from: "start"
-                    },
+                    duration: 0.6,
+                    stagger: 0.1,
                     ease: "power2.out",
                     scrollTrigger: {
                         trigger: sectionRef.current,
-                        start: "top 70%",
+                        start: "top 75%",
                         toggleActions: "play none none reverse"
                     }
                 }
@@ -129,7 +123,7 @@ const Terms = () => {
                         <div
                             key={idx}
                             ref={el => cardsRef.current[idx] = el}
-                            className="group relative bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/20"
+                            className="group relative bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-white/20 will-change-transform"
                         >
                             {/* Icon with gradient background */}
                             <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">

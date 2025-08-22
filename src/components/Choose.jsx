@@ -7,9 +7,9 @@ import tag from '../assets/icons/tag.png'
 import marine from '../assets/icons/cargo-ship.png'
 import flight from '../assets/icons/flight.png'
 import truck from '../assets/icons/cargo-truck.png'
-import logi1 from '../assets/logis/logi1.jpg'
-import logi2 from '../assets/logis/logi2.jpg'
-import logi4 from '../assets/logis/logi4.jpg'
+import logi1 from '../assets/logis/logi1.webp'
+import logi2 from '../assets/logis/logi2.webp'
+import logi4 from '../assets/logis/logi4.webp'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,66 +67,62 @@ const Choose = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Main title animation
       gsap.fromTo(titleRef.current,
-        { opacity: 0, scale: 0.8, y: 50 },
+        { opacity: 0, y: 40 },
         {
           opacity: 1,
-          scale: 1,
           y: 0,
-          duration: 1.5,
-          ease: "power3.out",
+          duration: 0.8,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: titleRef.current,
-            start: "top 80%",
+            start: "top 85%",
             toggleActions: "play none none reverse"
           }
         }
       );
 
-      // Why choose us cards
-      gsap.fromTo(whyCardsRef.current,
-        { opacity: 0, x: -100, rotation: -5 },
+      gsap.fromTo(whyCardsRef.current.filter(Boolean),
+        { opacity: 0, y: 60, scale: 0.9 },
         {
           opacity: 1,
-          x: 0,
-          rotation: 0,
-          duration: 1,
-          stagger: 0.2,
+          y: 0,
+          scale: 1,
+          duration: 0.7,
+          stagger: 0.1,
           ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 70%",
+            start: "top 75%",
             toggleActions: "play none none reverse"
           }
         }
       );
 
-      // Services section
       gsap.fromTo(servicesRef.current,
-        { opacity: 0, y: 80 },
+        { opacity: 0, y: 40 },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
+          duration: 0.6,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: servicesRef.current,
-            start: "top 80%",
+            start: "top 85%",
             toggleActions: "play none none reverse"
           }
         }
       );
 
-      // Service cards with 3D effect
-      gsap.fromTo(serviceCardsRef.current,
-        { opacity: 0, y: 120, rotationX: 45 },
+      gsap.fromTo(serviceCardsRef.current.filter(Boolean),
+        { opacity: 0, y: 80, scale: 0.95 },
         {
           opacity: 1,
           y: 0,
-          rotationX: 0,
-          duration: 1.2,
-          stagger: 0.25,
-          ease: "power3.out",
+          scale: 1,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: serviceCardsRef.current[0],
             start: "top 80%",
@@ -158,7 +154,7 @@ const Choose = () => {
             <div
               key={idx}
               ref={el => whyCardsRef.current[idx] = el}
-              className="group relative bg-white/10 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-2xl hover:bg-white/20 transition-all duration-500 hover:-translate-y-2"
+              className="group relative bg-white/10 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-2xl hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 will-change-transform"
             >
               {/* Icon */}
               <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">

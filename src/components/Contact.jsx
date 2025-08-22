@@ -6,7 +6,7 @@ const Contact = () => {
             {/* Centered Heading with Orange Lines */}
             <div className="flex items-center justify-center mb-12">
                 <span className="h-1 w-24 bg-gray-600 rounded mr-6"></span>
-                <h2 className="text-4xl font-bold text-gray-800 prata-regular tracking-wide">
+                <h2 className="text-4xl font-bold text-white prata-regular tracking-wide">
                     CONTACT US
                 </h2>
                 <span className="h-1 w-24 bg-gray-600 rounded ml-6"></span>
@@ -16,7 +16,7 @@ const Contact = () => {
             <div className="flex flex-col lg:flex-row gap-12">
                 {/* Left: Contact Info */}
                 <div className="w-full lg:w-1/3 flex flex-col items-start">
-                    <h3 className="text-3xl font-semibold text-gray-900 mb-10">
+                    <h3 className="text-3xl font-semibold text-white mb-10">
                         REACH US
                     </h3>
                     <div className="flex items-start mb-8">
@@ -40,7 +40,7 @@ const Contact = () => {
                                 />
                             </svg>
                         </span>
-                        <span className="text-gray-800 text-lg">
+                        <span className="text-white text-lg">
                             M-202, Al Ahrar Building,
                             <br />
                             Salah Al Din Street,
@@ -65,7 +65,7 @@ const Contact = () => {
                                 />
                             </svg>
                         </span>
-                        <span className="text-gray-800 text-lg">
+                        <span className="text-white text-lg">
                             cargoservice@sbm.com
                         </span>
                     </div>
@@ -84,7 +84,7 @@ const Contact = () => {
                                 />
                             </svg>
                         </span>
-                        <span className="text-gray-800 text-lg">
+                        <span className="text-white text-lg">
                             +91 1234567890
                         </span>
                     </div>

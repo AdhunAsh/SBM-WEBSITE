@@ -1,5 +1,5 @@
 import React from 'react'
-import logi4 from '../assets/logis/logi4.jpg'
+import logi4 from '../assets/logis/logi4.webp'
 
 const Footer = () => {
   return (

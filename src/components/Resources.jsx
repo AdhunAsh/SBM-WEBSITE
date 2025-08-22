@@ -36,51 +36,48 @@ const Resources = () => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Title animation
             gsap.fromTo(titleRef.current,
-                { opacity: 0, y: 50 },
+                { opacity: 0, y: 40 },
                 {
                     opacity: 1,
                     y: 0,
-                    duration: 1,
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: titleRef.current,
-                        start: "top 80%",
-                        toggleActions: "play none none reverse"
-                    }
-                }
-            );
-
-            // Resource cards with bounce effect
-            gsap.fromTo(cardsRef.current,
-                { opacity: 0, y: 100, rotation: 10 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    rotation: 0,
-                    duration: 1,
-                    stagger: 0.2,
-                    ease: "back.out(1.7)",
-                    scrollTrigger: {
-                        trigger: sectionRef.current,
-                        start: "top 70%",
-                        toggleActions: "play none none reverse"
-                    }
-                }
-            );
-
-            // CTA section
-            gsap.fromTo(ctaRef.current,
-                { opacity: 0, scale: 0.8 },
-                {
-                    opacity: 1,
-                    scale: 1,
                     duration: 0.8,
                     ease: "power2.out",
                     scrollTrigger: {
+                        trigger: titleRef.current,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+
+            gsap.fromTo(cardsRef.current.filter(Boolean),
+                { opacity: 0, y: 60, scale: 0.95 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 0.7,
+                    stagger: 0.1,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top 75%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+
+            gsap.fromTo(ctaRef.current,
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "power2.out",
+                    scrollTrigger: {
                         trigger: ctaRef.current,
-                        start: "top 80%",
+                        start: "top 85%",
                         toggleActions: "play none none reverse"
                     }
                 }
@@ -112,7 +109,7 @@ const Resources = () => {
                         <div
                             key={idx}
                             ref={el => cardsRef.current[idx] = el}
-                            className="group relative bg-white/10 backdrop-blur-sm p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-white/20"
+                            className="group relative bg-white/10 backdrop-blur-sm p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-white/20 will-change-transform"
                         >
                             {/* Gradient border effect */}
                             <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-black rounded-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
