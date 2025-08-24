@@ -32,13 +32,13 @@ const Market = () => {
     >
       <div ref={titleRef} className="text-center mb-12">
         <div className="flex items-center justify-center mb-8">
-          <span className="h-1 w-16 bg-gray-600 rounded mr-4"></span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-wide">
-            🌍 MARKETS WE SERVE
+          <div className="h-1 w-20 bg-gradient-to-r from-transparent to-gray-800 rounded mr-4"></div>
+          <h2 className="text-5xl md:text-6xl font-extrabold text-[#2B3167] mb-6 tracking-tight">
+            Markets We <span className="text-[#F9B500]">Serve</span>
           </h2>
-          <span className="h-1 w-16 bg-gray-600 rounded ml-4"></span>
+          <div className="h-1 w-20 bg-gradient-to-l from-transparent to-gray-800 rounded ml-4"></div>
         </div>
-        <p className="text-lg text-white max-w-2xl mx-auto">
+        <p className="text-xl text-[#2B3167] max-w-3xl mx-auto leading-relaxed">
           We provide reliable logistics solutions across multiple industries
         </p>
       </div>
@@ -166,6 +166,7 @@ const Market = () => {
         </div>
       </div>
     </div>
+    
   );
 };
 

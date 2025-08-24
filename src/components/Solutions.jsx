@@ -109,12 +109,12 @@ const Solutions = () => {
                 <div ref={titleRef} className="text-center mb-16">
                     <div className="flex items-center justify-center mb-8">
                         <div className="h-1 w-20 bg-gradient-to-r from-transparent to-gray-800 rounded mr-4"></div>
-                        <h2 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight">
-                            OUR SOLUTIONS
+                        <h2 className="text-5xl md:text-6xl font-extrabold text-[#2B3167] mb-6 tracking-tight">
+                            Our <span className="text-[#F9B500]">Solutions</span>
                         </h2>
                         <div className="h-1 w-20 bg-gradient-to-l from-transparent to-gray-800 rounded ml-4"></div>
                     </div>
-                    <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-xl text-[#2B3167] max-w-3xl mx-auto leading-relaxed">
                         Comprehensive logistics services designed to move your cargo seamlessly across borders and industries
                     </p>
                 </div>
@@ -133,8 +133,8 @@ const Solutions = () => {
                             ></div>
                             
                             {/* Gradient Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-black/80 to-gray-900/90 opacity-85 group-hover:opacity-90 transition-opacity duration-300"></div>
-                            
+                            <div className="absolute inset-0 bg-gradient-to-br from-black/80 to-gray-900/90 opacity-85 group-hover:bg-gradient-to-t group-hover:from-black/50 group-hover:to-transparent transition-all duration-700 ease-in-out"></div>
+
                             {/* Content */}
                             <div className="relative p-8 h-80 flex flex-col justify-between">
                                 <div className="flex items-start justify-between">
@@ -145,10 +145,10 @@ const Solutions = () => {
                                 </div>
                                 
                                 <div>
-                                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-gray-200 transition-colors duration-300">
+                                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-gray-200 transition-colors duration-300 drop-shadow-lg">
                                         {solution.title}
                                     </h3>
-                                    <p className="text-white/90 leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                                    <p className="text-white/90 leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 drop-shadow-md">
                                         {solution.description}
                                     </p>
                                 </div>
@@ -165,14 +165,14 @@ const Solutions = () => {
                 </div>
                 
                 {/* Call to Action */}
-                <div className="text-center mt-16">
+                {/* <div className="text-center mt-16">
                     <div className="inline-flex items-center px-8 py-4 bg-white text-black font-semibold rounded-full shadow-lg hover:shadow-xl hover:bg-gray-200 transform hover:-translate-y-1 transition-all duration-300 cursor-pointer">
                         <span>Explore All Services</span>
                         <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                         </svg>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

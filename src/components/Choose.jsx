@@ -72,12 +72,12 @@ const Choose = () => {
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 0.4,
           ease: "power2.out",
           scrollTrigger: {
             trigger: titleRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse"
+            start: "top 95%",
+            toggleActions: "play none none none"
           }
         }
       );
@@ -88,13 +88,13 @@ const Choose = () => {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 0.7,
-          stagger: 0.1,
+          duration: 0.3,
+          stagger: 0.05,
           ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 75%",
-            toggleActions: "play none none reverse"
+            start: "top 90%",
+            toggleActions: "play none none none"
           }
         }
       );
@@ -104,12 +104,12 @@ const Choose = () => {
         {
           opacity: 1,
           y: 0,
-          duration: 0.6,
+          duration: 0.3,
           ease: "power2.out",
           scrollTrigger: {
             trigger: servicesRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse"
+            start: "top 95%",
+            toggleActions: "play none none none"
           }
         }
       );
@@ -120,13 +120,13 @@ const Choose = () => {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 0.8,
-          stagger: 0.15,
+          duration: 0.4,
+          stagger: 0.05,
           ease: "power2.out",
           scrollTrigger: {
             trigger: serviceCardsRef.current[0],
-            start: "top 80%",
-            toggleActions: "play none none reverse"
+            start: "top 90%",
+            toggleActions: "play none none none"
           }
         }
       );
@@ -141,10 +141,10 @@ const Choose = () => {
       <div className="relative max-w-7xl mx-auto">
         {/* Why Choose Us Section */}
         <div ref={titleRef} className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">
-            Why Choose <span className="text-gray-300">SBM Logistics?</span>
+          <h2 className="text-5xl md:text-6xl font-extrabold text-[#2B3167] mb-6 tracking-tight">
+            Why Choose <span className="text-[#F9B500]">SBM Logistics?</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-[#2B3167] max-w-3xl mx-auto leading-relaxed">
             Experience the difference with our commitment to excellence, innovation, and customer satisfaction
           </p>
         </div>
@@ -154,23 +154,25 @@ const Choose = () => {
             <div
               key={idx}
               ref={el => whyCardsRef.current[idx] = el}
-              className="group relative bg-white/10 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-2xl hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 will-change-transform"
+              className="group relative bg-white/10 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-2xl transition-all duration-300 hover:-translate-y-1 will-change-transform overflow-hidden"
             >
+              {/* Blue circle animation */}
+              <div className="absolute -left-full top-0 w-full h-full bg-[#2B3167] rounded-full scale-0 group-hover:scale-[3] group-hover:left-0 transition-all duration-700 ease-in-out"></div>
               {/* Icon */}
-              <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="relative z-10 w-20 h-20 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <img src={item.icon} alt={item.title} className="w-10 h-10" />
               </div>
               
               {/* Stats badge */}
-              <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-gray-300 text-sm font-semibold mb-4">
+              <div className="relative z-10 inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-[#2B3167] group-hover:text-white text-sm font-semibold mb-4 transition-colors duration-300">
                 {item.stats}
               </div>
               
-              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-gray-300 transition-colors duration-300">
+              <h3 className="relative z-10 text-2xl font-bold text-[#2B3167] group-hover:text-white mb-4 transition-colors duration-300">
                 {item.title}
               </h3>
               
-              <p className="text-gray-300 leading-relaxed group-hover:text-white transition-colors duration-300">
+              <p className="relative z-10 text-[#2B3167] group-hover:text-white leading-relaxed transition-colors duration-300">
                 {item.description}
               </p>
               
@@ -181,19 +183,18 @@ const Choose = () => {
           ))}
         </div>
 
-        {/* Divider */}
-        <div className="flex items-center justify-center mb-20">
-          <div className="h-px w-32 bg-gradient-to-r from-transparent to-gray-400"></div>
-          <div className="mx-4 w-3 h-3 bg-gray-400 rounded-full"></div>
-          <div className="h-px w-32 bg-gradient-to-l from-transparent to-gray-400"></div>
-        </div>
+
 
         {/* Services Section */}
         <div ref={servicesRef} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
-            Our <span className="text-gray-300">Core Services</span>
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <div className="flex items-center justify-center mb-8">
+            <div className="h-1 w-20 bg-gradient-to-r from-transparent to-gray-800 rounded mr-4"></div>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-[#2B3167] tracking-tight">
+              OUR CORE SERVICES
+            </h2>
+            <div className="h-1 w-20 bg-gradient-to-l from-transparent to-gray-800 rounded ml-4"></div>
+          </div>
+          <p className="text-xl text-[#2B3167] max-w-3xl mx-auto leading-relaxed">
             Comprehensive logistics solutions tailored to meet your specific transportation needs
           </p>
         </div>
@@ -245,16 +246,16 @@ const Choose = () => {
             </div>
           ))}
         </div>
-        
+
         {/* Call to Action */}
-        <div className="text-center mt-16">
+        {/* <div className="text-center mt-16">
           <button className="inline-flex items-center px-8 py-4 bg-white text-black font-semibold rounded-full shadow-lg hover:shadow-xl hover:bg-gray-200 transform hover:-translate-y-1 transition-all duration-300">
             <span>Get Started Today</span>
             <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </button>
-        </div>
+        </div>} */}
       </div>
     </div>
   )

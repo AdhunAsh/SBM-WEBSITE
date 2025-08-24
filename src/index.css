@@ -14,7 +14,25 @@
   font-style: normal;
 }
 
-html {
+html, body {
+  margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
+  height: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes shine {
+  0% { background-position: 100%; }
+  100% { background-position: -100%; }
+}
+
+.animate-shine {
+  animation: shine 5s linear infinite;
 }
 

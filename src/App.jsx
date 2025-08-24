@@ -7,9 +7,8 @@ import Nav from './components/Nav';
 
 const App = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <Nav />
-      {/* Routes */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

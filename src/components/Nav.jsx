@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import sbmLogo from '../assets/sbmlogo.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,7 +48,6 @@ const Nav = () => {
     { href: "#home", label: "Home" },
     { href: "#markets", label: "Markets" },
     { href: "#solutions", label: "Solutions" },
-    { href: "#about", label: "About" },
     { href: "#responsibilities", label: "Services" },
     { href: "#terms", label: "Terms" },
     { href: "#resources", label: "Resources" },
@@ -62,19 +62,22 @@ const Nav = () => {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled
-          ? "backdrop-blur-xl bg-black/30 border-b border-black/20 shadow-lg"
-          : "backdrop-blur-md bg-black/10"
+          ? "backdrop-blur-xl bg-white/95 border-b border-[#F9B500]/20 shadow-lg"
+          : "backdrop-blur-md bg-white/90"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div
-            className={`text-xl font-bold transition-colors ${
-              scrolled ? "text-white" : "text-white"
-            }`}
-          >
-            SBM Cargo Service
+          <div className="flex items-center space-x-3">
+            <img src={sbmLogo} alt="SBM Logo" className="h-10 w-auto" />
+            <div
+              className={`text-xl font-bold transition-colors ${
+                scrolled ? "text-[#2B3167]" : "text-[#2B3167]"
+              }`}
+            >
+              SBM Cargo Services LLC
+            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -86,12 +89,12 @@ const Nav = () => {
                 onClick={() => handleLinkClick(link.href)}
                 className={`px-4 py-2 text-sm font-medium relative group transition-all duration-300 ${
                   active === link.href
-                    ? "text-white"
-                    : "text-white/70 hover:text-white"
+                    ? "text-[#2B3167]"
+                    : "text-[#2B3167]/70 hover:text-[#2B3167]"
                 }`}
               >
                 {link.label}
-                <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-black group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-[#F9B500] group-hover:w-full transition-all duration-300"></span>
               </a>
             ))}
           </div>
@@ -102,8 +105,8 @@ const Nav = () => {
               href="#contact"
               className={`hidden sm:flex items-center px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 scrolled
-                  ? "bg-gradient-to-r from-blue-600 to-slate-800 text-white shadow-lg hover:shadow-xl hover:scale-105"
-                  : "border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm"
+                  ? "bg-[#F9B500] text-[#2B3167] shadow-lg hover:shadow-xl hover:scale-105"
+                  : "border-2 border-[#F9B500] text-[#2B3167] hover:bg-[#F9B500]/10 backdrop-blur-sm"
               }`}
             >
               Contact Now
@@ -114,8 +117,8 @@ const Nav = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`lg:hidden p-2 rounded-full transition-all duration-300 ${
                 scrolled
-                  ? "text-white hover:bg-black/20"
-                  : "text-white hover:bg-white/10"
+                  ? "text-[#2B3167] hover:bg-[#F9B500]/20"
+                  : "text-[#2B3167] hover:bg-[#F9B500]/10"
               }`}
             >
               <svg
@@ -149,7 +152,7 @@ const Nav = () => {
       {isMenuOpen && (
         <div
           ref={mobileMenuRef}
-          className="lg:hidden backdrop-blur-xl bg-black/40 border-t border-black/20"
+          className="lg:hidden backdrop-blur-xl bg-white/95 border-t border-[#F9B500]/20"
         >
           <div className="px-4 py-4 flex flex-col divide-y divide-black/30">
             {navLinks.map((link) => (
@@ -157,10 +160,10 @@ const Nav = () => {
                 key={link.href}
                 href={link.href}
                 onClick={() => handleLinkClick(link.href)}
-                className={`mobile-link block py-3 px-4 text-white ${
+                className={`mobile-link block py-3 px-4 text-[#2B3167] ${
                   active === link.href
-                    ? "bg-gradient-to-r from-blue-600 to-slate-700"
-                    : "hover:bg-black/30"
+                    ? "bg-[#F9B500]"
+                    : "hover:bg-[#F9B500]/20"
                 }`}
               >
                 {link.label}
@@ -169,7 +172,7 @@ const Nav = () => {
             <a
               href="#contact"
               onClick={() => setIsMenuOpen(false)}
-              className="mobile-link block mt-4 py-3 px-4 bg-blue-600 text-white text-center rounded"
+              className="mobile-link block mt-4 py-3 px-4 bg-[#F9B500] text-[#2B3167] text-center rounded"
             >
               Contact Now
             </a>
