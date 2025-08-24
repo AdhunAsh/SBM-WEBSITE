@@ -61,19 +61,6 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold text-[#F9B500] mb-4">Contact Info</h4>
             <div className="space-y-3 text-gray-300">
-              <div className="flex items-start">
-                <svg className="w-5 h-5 text-[#F9B500] mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C7.03 2 3 6.03 3 11c0 5.25 7.11 10.74 8.06 11.43.34.25.8.25 1.14 0C13.89 21.74 21 16.25 21 11c0-4.97-4.03-9-9-9zm0 17.88C9.14 17.1 5 13.61 5 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 2.61-4.14 6.1-7 8.88z"/>
-                  <circle cx="12" cy="11" r="3" fill="currentColor"/>
-                </svg>
-                <span className="text-sm">M20, Business Center, Bin Shabib Mall<br/>Al Qusais Industrial Area 1, Dubai</span>
-              </div>
-              <div className="flex items-center">
-                <svg className="w-5 h-5 text-[#F9B500] mr-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zm0 12H4V8.99l8 6.99 8-6.99V18z"/>
-                </svg>
-                <span className="text-sm">info@sbmcargoservices.com</span>
-              </div>
               <div className="flex items-center">
                 <svg className="w-5 h-5 text-[#F9B500] mr-3" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.21 1.11l-2.2 2.2z"/>
@@ -82,9 +69,36 @@ const Footer = () => {
               </div>
               <div className="flex items-center">
                 <svg className="w-5 h-5 text-[#F9B500] mr-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M3.654 1.328l-1.982.982C1.178 2.654.5 3.336.5 4.018s.678 1.364 1.172 1.708l1.982.982c.494.344 1.172.344 1.666 0l1.982-.982c.494-.344 1.172-1.026 1.172-1.708s-.678-1.364-1.172-1.708L5.32 1.328c-.494-.344-1.172-.344-1.666 0z"/>
+                  <path d="M6.54 5c.06.89.21 1.76.45 2.59l-1.2 1.2c-.41-1.2-.67-2.47-.76-3.79h1.51m9.86 12.02c.85.24 1.72.39 2.6.45v1.49c-1.32-.09-2.59-.35-3.8-.75l1.2-1.19M7.5 3H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.49c0-.55-.45-1-1-1-1.24 0-2.45-.2-3.57-.57-.1-.04-.21-.05-.31-.05-.26 0-.51.1-.71.29l-2.2 2.2c-2.83-1.45-5.15-3.76-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1z"/>
+                </svg>
+                <span className="text-sm">+971 4 824 8553</span>
+              </div>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@sbmcargoservices.com" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-[#F9B500] transition-colors duration-300">
+                <svg className="w-5 h-5 text-[#F9B500] mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zm0 12H4V8.99l8 6.99 8-6.99V18z"/>
+                </svg>
+                <span className="text-sm">info@sbmcargoservices.com</span>
+              </a>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=subhash.at@sbmcargoservices.com" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-[#F9B500] transition-colors duration-300">
+                <svg className="w-5 h-5 text-[#F9B500] mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zm0 12H4V8.99l8 6.99 8-6.99V18z"/>
+                </svg>
+                <span className="text-sm">subhash.at@sbmcargoservices.com</span>
+              </a>
+              <div className="flex items-center">
+                <svg className="w-5 h-5 text-[#F9B500] mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/>
+                  <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM18.92 8h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/>
                 </svg>
                 <span className="text-sm">www.sbmcargoservices.com</span>
+              </div>
+              <div className="flex items-start">
+                <svg className="w-5 h-5 text-[#F9B500] mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C7.03 2 3 6.03 3 11c0 5.25 7.11 10.74 8.06 11.43.34.25.8.25 1.14 0C13.89 21.74 21 16.25 21 11c0-4.97-4.03-9-9-9zm0 17.88C9.14 17.1 5 13.61 5 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 2.61-4.14 6.1-7 8.88z"/>
+                  <circle cx="12" cy="11" r="3" fill="currentColor"/>
+                </svg>
+                <span className="text-sm">M20, Business Center, Bin Shabib Mall<br/>Al Qusais Industrial Area 1, Dubai</span>
               </div>
             </div>
           </div>
