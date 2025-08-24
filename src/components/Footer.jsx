@@ -10,8 +10,6 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <h3 className="text-2xl font-bold text-[#F9B500] mb-4">SBM Cargo Services LLC</h3>
             <div className="mb-6">
-              <p className="text-[#F9B500] font-semibold mb-2">Subhash A T</p>
-              <p className="text-gray-300 mb-4">Managing Director</p>
               <p className="text-gray-300 leading-relaxed">
                 Your trusted partner in global logistics solutions, delivering excellence across marine, air, and inland cargo services.
               </p>
@@ -63,10 +61,6 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold text-[#F9B500] mb-4">Contact Info</h4>
             <div className="space-y-3 text-gray-300">
-              <div className="mb-4">
-                <p className="text-[#F9B500] font-semibold">Subhash A T</p>
-                <p className="text-gray-300 text-sm">Managing Director</p>
-              </div>
               <div className="flex items-start">
                 <svg className="w-5 h-5 text-[#F9B500] mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2C7.03 2 3 6.03 3 11c0 5.25 7.11 10.74 8.06 11.43.34.25.8.25 1.14 0C13.89 21.74 21 16.25 21 11c0-4.97-4.03-9-9-9zm0 17.88C9.14 17.1 5 13.61 5 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 2.61-4.14 6.1-7 8.88z"/>
