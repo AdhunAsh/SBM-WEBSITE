@@ -72,7 +72,7 @@ const Nav = () => {
           <div className="flex items-center space-x-3">
             <img src={sbmLogo} alt="SBM Logo" className="h-10 w-auto" />
             <div
-              className={`text-xl font-bold transition-colors ${
+              className={`text-xl font-bold transition-colors hidden sm:block ${
                 scrolled ? "text-[#2B3167]" : "text-[#2B3167]"
               }`}
             >
