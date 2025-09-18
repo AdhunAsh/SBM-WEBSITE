@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { motion } from 'framer-motion'
 import logi1 from '../assets/logis/logi1.webp'
 import logi2 from '../assets/logis/logi2.webp'
 import logi3 from '../assets/logis/logi3.webp'
@@ -74,6 +75,30 @@ const Hero = () => {
 
   return (
     <div ref={heroRef} className='relative min-h-screen bg-gray-900 overflow-hidden'>
+        {/* Floating particles background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {Array.from({ length: 20 }, (_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-white/20 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [-20, 20, -20],
+                opacity: [0.3, 0.8, 0.3],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
+        </div>
+
         {images.map((image, index) => (
           <img 
             key={index}
@@ -90,10 +115,15 @@ const Hero = () => {
             <div className='w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center'>
                 {/* Left Content */}
                 <div className='max-w-2xl'>
-                    <div className='inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-6'>
-                        <span className='w-2 h-2 bg-[#89F336] rounded-full mr-2 animate-pulse'></span>
+                    <motion.div 
+                      className='inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-6 hover-glow smooth-transition'
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                        <span className='w-2 h-2 bg-[#89F336] rounded-full mr-2 animate-pulse-glow'></span>
                         Available 24/7 Worldwide
-                    </div>
+                    </motion.div>
                     <h1 ref={titleRef} className='text-3xl md:text-5xl lg:text-[55px] font-bold mb-6 leading-tight will-change-transform drop-shadow-xl/50' style={{
                       background: 'linear-gradient(120deg, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 1) 60%)',
                       backgroundSize: '200% 100%',
@@ -105,66 +135,93 @@ const Hero = () => {
                     <p ref={descRef} className='lato-regular text-base md:text-lg text-white leading-relaxed mb-8 will-change-transform drop-shadow-xl/50'>We connect businesses and customers worldwide with fast, secure, and affordable shipping solutions. Whether it's a single package or bulk cargo, we ensure safe delivery to your destination.</p>
                     
                     <div className='flex flex-col sm:flex-row gap-4 mb-8'>
-                        <button ref={buttonRef} onClick={handleClick} className='rounded-full px-8 py-4 bg-[#F9B500] hover:bg-[#F9B500]/90 text-[#2B3167] font-semibold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl will-change-transform'>
-                            Get Started <img className='w-4' src={arrow} alt="" />
-                        </button>
-                        {/* <button className='rounded-full px-8 py-4 border-2 border-[#2B3167]/50 text-[#2B3167] font-semibold hover:bg-[#2B3167]/10 transition-all duration-300 backdrop-blur-sm'>
-                            Track Shipment
-                        </button> */}
+                        <motion.button 
+                          ref={buttonRef} 
+                          onClick={handleClick} 
+                          className='rounded-full px-8 py-4 bg-[#F9B500] hover:bg-[#F9B500]/90 text-[#2B3167] font-semibold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl will-change-transform hover-lift'
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                            Get Started 
+                            <motion.img 
+                              className='w-4' 
+                              src={arrow} 
+                              alt=""
+                              animate={{ x: [0, 5, 0] }}
+                              transition={{ repeat: Infinity, duration: 2 }}
+                            />
+                        </motion.button>
                     </div>
                 </div>
 
-                {/* Right Stats Cards - Desktop Only */}
+                {/* Right Stats Cards - Desktop Only with Enhanced Animations */}
                 <div className='hidden lg:block'>
-                    <div className='grid grid-cols-2 gap-4'>
-                        <div className='bg-white/20 backdrop-blur-md rounded-2xl p-6 hover:bg-white/30 transition-all duration-300 shadow-lg'>
-                            <div className='text-3xl font-bold text-white mb-2 drop-shadow-lg'>500+</div>
-                            <div className='text-white/80 text-sm drop-shadow-md'>Global Partners</div>
-                        </div>
-                        <div className='bg-white/20 backdrop-blur-md rounded-2xl p-6 hover:bg-white/30 transition-all duration-300 shadow-lg'>
-                            <div className='text-3xl font-bold text-white mb-2 drop-shadow-lg'>99.9%</div>
-                            <div className='text-white/80 text-sm drop-shadow-md'>On-Time Delivery</div>
-                        </div>
-                        <div className='bg-white/20 backdrop-blur-md rounded-2xl p-6 hover:bg-white/30 transition-all duration-300 shadow-lg'>
-                            <div className='text-3xl font-bold text-white mb-2 drop-shadow-lg'>150+</div>
-                            <div className='text-white/80 text-sm drop-shadow-md'>Countries Served</div>
-                        </div>
-                        <div className='bg-white/20 backdrop-blur-md rounded-2xl p-6 hover:bg-white/30 transition-all duration-300 shadow-lg'>
-                            <div className='text-3xl font-bold text-white mb-2 drop-shadow-lg'>24/7</div>
-                            <div className='text-white/80 text-sm drop-shadow-md'>Customer Support</div>
-                        </div>
-                    </div>
+                    <motion.div 
+                      className='grid grid-cols-2 gap-4'
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.8, delay: 1 }}
+                    >
+                        {[
+                          { number: '500+', label: 'Global Partners' },
+                          { number: '99.9%', label: 'On-Time Delivery' },
+                          { number: '150+', label: 'Countries Served' },
+                          { number: '24/7', label: 'Customer Support' }
+                        ].map((stat, index) => (
+                          <motion.div 
+                            key={index}
+                            className='glass-morphism rounded-2xl p-6 hover:bg-white/30 transition-all duration-300 shadow-lg hover-lift'
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
+                            whileHover={{ y: -5 }}
+                          >
+                            <motion.div 
+                              className='text-3xl font-bold text-white mb-2 drop-shadow-lg'
+                              animate={{ scale: [1, 1.1, 1] }}
+                              transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
+                            >
+                              {stat.number}
+                            </motion.div>
+                            <div className='text-white/80 text-sm drop-shadow-md'>{stat.label}</div>
+                          </motion.div>
+                        ))}
+                    </motion.div>
                     
-                    {/* Quick Services */}
-                    <div className='mt-6 bg-white/20 backdrop-blur-md rounded-2xl p-6 shadow-lg'>
+                    {/* Quick Services with Enhanced Animations */}
+                    <motion.div 
+                      className='mt-6 glass-morphism rounded-2xl p-6 shadow-lg'
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 1.8 }}
+                    >
                         <h3 className='text-white font-semibold mb-4 drop-shadow-lg'>Quick Services</h3>
                         <div className='space-y-3'>
-                            <div className='flex items-center text-white/80 hover:text-white transition-colors cursor-pointer'>
-                                <div className='w-8 h-8 bg-[#F9B500] rounded-lg flex items-center justify-center mr-3'>
-                                    <svg className='w-4 h-4' fill='currentColor' viewBox='0 0 20 20'>
-                                        <path d='M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z' />
-                                    </svg>
-                                </div>
-                                <span className='text-sm drop-shadow-md'>Air Freight Express</span>
-                            </div>
-                            <div className='flex items-center text-white/80 hover:text-white transition-colors cursor-pointer'>
-                                <div className='w-8 h-8 bg-[#F9B500] rounded-lg flex items-center justify-center mr-3'>
-                                    <svg className='w-4 h-4' fill='currentColor' viewBox='0 0 20 20'>
-                                        <path d='M8 5a1 1 0 100 2h5.586l-1.293 1.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L13.586 5H8zM12 15a1 1 0 100-2H6.414l1.293-1.293a1 1 0 10-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L6.414 15H12z' />
-                                    </svg>
-                                </div>
-                                <span className='text-sm drop-shadow-md'>Sea Freight Economy</span>
-                            </div>
-                            <div className='flex items-center text-white/80 hover:text-white transition-colors cursor-pointer'>
-                                <div className='w-8 h-8 bg-[#F9B500] rounded-lg flex items-center justify-center mr-3'>
-                                    <svg className='w-4 h-4' fill='currentColor' viewBox='0 0 20 20'>
-                                        <path d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' />
-                                    </svg>
-                                </div>
-                                <span className='text-sm'>Customs Clearance</span>
-                            </div>
+                            {[
+                              { icon: '📦', label: 'Air Freight Express' },
+                              { icon: '🚢', label: 'Sea Freight Economy' },
+                              { icon: '✅', label: 'Customs Clearance' }
+                            ].map((service, index) => (
+                              <motion.div 
+                                key={index}
+                                className='flex items-center text-white/80 hover:text-white transition-colors cursor-pointer hover-lift'
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5, delay: 2 + index * 0.1 }}
+                                whileHover={{ x: 5 }}
+                              >
+                                <motion.div 
+                                  className='w-8 h-8 bg-[#F9B500] rounded-lg flex items-center justify-center mr-3'
+                                  whileHover={{ rotate: 360 }}
+                                  transition={{ duration: 0.5 }}
+                                >
+                                    <span className='text-sm'>{service.icon}</span>
+                                </motion.div>
+                                <span className='text-sm drop-shadow-md'>{service.label}</span>
+                              </motion.div>
+                            ))}
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </div>
