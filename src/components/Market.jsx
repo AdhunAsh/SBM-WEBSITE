@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { fadeInUp, staggerCards } from "../utils/useGSAP";
 import logi6 from "../assets/logis/logi6.webp";
 import logi8 from "../assets/logis/logi8.webp";
+import logi9 from "../assets/logis/logi9.webp";
 import logi3 from "../assets/logis/logi3.webp";
 import logi7 from "../assets/logis/logi7.webp";
 import logi10 from "../assets/logis/logi10.webp";
@@ -103,7 +104,7 @@ const Market = () => {
               ref={(el) => (cardsRef.current[6] = el)}
               className="col-span-4 relative rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 will-change-transform"
             >
-              <img src={logi8} alt="Manufacturing" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <img src={logi9} alt="Manufacturing" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent group-hover:from-black/80 transition-all duration-500"></div>
               <div className="absolute inset-0 flex flex-col justify-end p-6">
                 <h3 className="text-lg font-bold text-white mb-2">
