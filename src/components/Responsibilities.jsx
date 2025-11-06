@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from 'framer-motion'
 import containersImage from '../assets/logis/containers.webp'
 
 gsap.registerPlugin(ScrollTrigger);
@@ -95,36 +96,136 @@ const Responsibilities = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {responsibilities.map((item, idx) => (
-            <div
+            <motion.div
               key={idx}
               ref={el => cardsRef.current[idx] = el}
-              className="group relative bg-white/10 backdrop-blur-xl p-8 rounded-3xl border border-white/20 shadow-2xl transition-all duration-300 hover:-translate-y-1 will-change-transform overflow-hidden"
+              className="group relative glass-morphism p-8 rounded-3xl border border-white/20 shadow-2xl transition-all duration-300 hover:-translate-y-1 will-change-transform overflow-hidden hover-lift"
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ 
+                duration: 0.6, 
+                delay: idx * 0.15,
+                type: "spring",
+                stiffness: 100
+              }}
+              whileHover={{ 
+                scale: 1.05,
+                rotateY: 5,
+                transition: { duration: 0.3 }
+              }}
             >
-              {/* Blue circle animation */}
-              <div className="absolute -left-full top-0 w-full h-full bg-[#2B3167] rounded-full scale-0 group-hover:scale-[3] group-hover:left-0 transition-all duration-700 ease-in-out"></div>
+              {/* Animated background circle */}
+              <motion.div 
+                className="absolute -left-full top-0 w-full h-full bg-[#2B3167] rounded-full scale-0 group-hover:scale-[3] group-hover:left-0 transition-all duration-700 ease-in-out"
+                whileHover={{ 
+                  scale: [0, 1.5, 3],
+                  left: ["-100%", "-50%", "0%"],
+                  transition: { duration: 0.7 }
+                }}
+              />
               
-              {/* Icon */}
-              <div className="relative z-10 w-20 h-20 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              {/* Floating particles around icon */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {Array.from({ length: 3 }, (_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-1 h-1 bg-[#F9B500] rounded-full opacity-0 group-hover:opacity-100"
+                    style={{
+                      left: `${20 + i * 20}%`,
+                      top: `${20 + i * 15}%`,
+                    }}
+                    animate={{
+                      y: [-10, 10, -10],
+                      x: [-5, 5, -5],
+                      opacity: [0, 1, 0],
+                    }}
+                    transition={{
+                      duration: 2 + i * 0.5,
+                      repeat: Infinity,
+                      delay: i * 0.3,
+                    }}
+                  />
+                ))}
+              </div>
+              
+              {/* Icon with enhanced animation */}
+              <motion.div 
+                className="relative z-10 w-20 h-20 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300"
+                initial={{ scale: 0, rotate: -180 }}
+                whileInView={{ scale: 1, rotate: 0 }}
+                transition={{ 
+                  delay: idx * 0.15 + 0.3,
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 10
+                }}
+                whileHover={{ 
+                  rotate: [0, -10, 10, 0],
+                  transition: { duration: 0.5 }
+                }}
+              >
                 {item.icon}
-              </div>
+              </motion.div>
               
-              {/* Stats badge */}
-              <div className="relative z-10 inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-[#2B3167] group-hover:text-white text-sm font-semibold mb-4 transition-colors duration-300">
+              {/* Stats badge with pulse animation */}
+              <motion.div 
+                className="relative z-10 inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-[#2B3167] group-hover:text-white text-sm font-semibold mb-4 transition-colors duration-300"
+                initial={{ scale: 0, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ delay: idx * 0.15 + 0.4 }}
+                whileHover={{ 
+                  scale: [1, 1.1, 1],
+                  transition: { duration: 0.3 }
+                }}
+              >
                 {item.stats}
-              </div>
+              </motion.div>
               
-              <h3 className="relative z-10 text-2xl font-bold text-[#2B3167] group-hover:text-white mb-4 transition-colors duration-300">
+              <motion.h3 
+                className="relative z-10 text-2xl font-bold text-[#2B3167] group-hover:text-white mb-4 transition-colors duration-300"
+                initial={{ x: -20, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ delay: idx * 0.15 + 0.5 }}
+              >
                 {item.title}
-              </h3>
+              </motion.h3>
               
-              <p className="relative z-10 text-[#2B3167] group-hover:text-white leading-relaxed transition-colors duration-300">
+              <motion.p 
+                className="relative z-10 text-[#2B3167] group-hover:text-white leading-relaxed transition-colors duration-300"
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: idx * 0.15 + 0.6 }}
+              >
                 {item.description}
-              </p>
+              </motion.p>
               
-              {/* Decorative elements */}
-              <div className="absolute top-4 right-4 w-2 h-2 bg-gray-400 rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute bottom-4 left-4 w-1 h-1 bg-gray-600 rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
+              {/* Decorative animated elements */}
+              <motion.div 
+                className="absolute top-4 right-4 w-2 h-2 bg-gray-400 rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-300"
+                animate={{
+                  scale: [1, 1.5, 1],
+                  opacity: [0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  delay: idx * 0.5,
+                }}
+              />
+              <motion.div 
+                className="absolute bottom-4 left-4 w-1 h-1 bg-gray-600 rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-300"
+                animate={{
+                  scale: [1, 2, 1],
+                  opacity: [0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  delay: idx * 0.7,
+                }}
+              />
+            </motion.div>
           ))}
         </div>
       </div>

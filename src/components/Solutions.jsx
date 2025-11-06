@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 import logi1 from "../assets/logis/logi1.webp";
 import logi2 from "../assets/logis/logi2.webp";
 import logi4 from "../assets/logis/logi4.webp";
@@ -121,58 +122,146 @@ const Solutions = () => {
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {solutions.map((solution, idx) => (
-                        <div
+                        <motion.div
                             key={idx}
                             ref={el => cardsRef.current[idx] = el}
-                            className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer"
+                            className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer hover-lift"
+                            initial={{ opacity: 0, y: 50, rotateX: 10 }}
+                            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ 
+                                duration: 0.6, 
+                                delay: idx * 0.1,
+                                type: "spring",
+                                stiffness: 100
+                            }}
+                            whileHover={{ 
+                                y: -10,
+                                rotateY: 5,
+                                scale: 1.02,
+                                transition: { duration: 0.3 }
+                            }}
                         >
-                            {/* Background Image */}
-                            <div 
-                                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                            {/* Background Image with enhanced animation */}
+                            <motion.div 
+                                className="absolute inset-0 bg-cover bg-center"
                                 style={{ backgroundImage: `url(${solution.bgImage})` }}
-                            ></div>
+                                whileHover={{ scale: 1.1 }}
+                                transition={{ duration: 0.7 }}
+                            />
                             
-                            {/* Gradient Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-black/80 to-gray-900/90 opacity-85 group-hover:bg-gradient-to-t group-hover:from-black/50 group-hover:to-transparent transition-all duration-700 ease-in-out"></div>
+                            {/* Gradient Overlay with dynamic animation */}
+                            <motion.div 
+                                className="absolute inset-0 bg-gradient-to-br from-black/80 to-gray-900/90"
+                                initial={{ opacity: 0.85 }}
+                                whileHover={{ 
+                                    background: "linear-gradient(to top, rgba(0,0,0,0.5), transparent)",
+                                    opacity: 1,
+                                    transition: { duration: 0.7 }
+                                }}
+                            />
 
-                            {/* Content */}
+                            {/* Floating particles effect */}
+                            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                                {Array.from({ length: 5 }, (_, i) => (
+                                    <motion.div
+                                        key={i}
+                                        className="absolute w-1 h-1 bg-[#F9B500] rounded-full opacity-0 group-hover:opacity-100"
+                                        style={{
+                                            left: `${20 + i * 15}%`,
+                                            top: `${20 + i * 10}%`,
+                                        }}
+                                        animate={{
+                                            y: [-20, 20, -20],
+                                            x: [-10, 10, -10],
+                                            opacity: [0, 1, 0],
+                                        }}
+                                        transition={{
+                                            duration: 3 + i * 0.5,
+                                            repeat: Infinity,
+                                            delay: i * 0.4,
+                                        }}
+                                    />
+                                ))}
+                            </div>
+
+                            {/* Content with enhanced animations */}
                             <div className="relative p-8 h-80 flex flex-col justify-between">
                                 <div className="flex items-start justify-between">
-                                    <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <motion.div 
+                                        className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                                        initial={{ scale: 0, rotate: -90 }}
+                                        whileInView={{ scale: 1, rotate: 0 }}
+                                        transition={{ delay: idx * 0.1 + 0.3, type: "spring", stiffness: 200 }}
+                                        whileHover={{ 
+                                            rotate: [0, -10, 10, 0],
+                                            scale: 1.2,
+                                            transition: { duration: 0.5 }
+                                        }}
+                                    >
                                         <img src={solution.icon} alt={solution.title} className="w-8 h-8 filter brightness-0 invert" />
-                                    </div>
-                                    <div className="w-2 h-2 bg-white/40 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                                    </motion.div>
+                                    <motion.div 
+                                        className="w-2 h-2 bg-white/40 rounded-full"
+                                        animate={{
+                                            scale: [1, 1.5, 1],
+                                            opacity: [0.4, 1, 0.4],
+                                        }}
+                                        transition={{
+                                            duration: 2,
+                                            repeat: Infinity,
+                                            delay: idx * 0.3,
+                                        }}
+                                    />
                                 </div>
                                 
                                 <div>
-                                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-gray-200 transition-colors duration-300 drop-shadow-lg">
+                                    <motion.h3 
+                                        className="text-2xl font-bold text-white mb-4 group-hover:text-gray-200 transition-colors duration-300 drop-shadow-lg"
+                                        initial={{ x: -30, opacity: 0 }}
+                                        whileInView={{ x: 0, opacity: 1 }}
+                                        transition={{ delay: idx * 0.1 + 0.4 }}
+                                    >
                                         {solution.title}
-                                    </h3>
-                                    <p className="text-white/90 leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 drop-shadow-md">
+                                    </motion.h3>
+                                    
+                                    <motion.p 
+                                        className="text-gray-300 leading-relaxed text-sm mb-6 drop-shadow-md"
+                                        initial={{ y: 20, opacity: 0 }}
+                                        whileInView={{ y: 0, opacity: 1 }}
+                                        transition={{ delay: idx * 0.1 + 0.5 }}
+                                    >
                                         {solution.description}
-                                    </p>
-                                </div>
-                                
-                                {/* Hover Arrow */}
-                                <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
-                                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                    </svg>
+                                    </motion.p>
+                                    
+                                    <motion.div 
+                                        className="flex items-center text-[#F9B500] text-sm font-semibold group-hover:text-white transition-colors duration-300"
+                                        initial={{ scale: 0 }}
+                                        whileInView={{ scale: 1 }}
+                                        transition={{ delay: idx * 0.1 + 0.6, type: "spring", stiffness: 200 }}
+                                        whileHover={{ x: 5 }}
+                                    >
+                                        <span>Learn More</span>
+                                        <motion.svg 
+                                            className="w-4 h-4 ml-2" 
+                                            fill="none" 
+                                            stroke="currentColor" 
+                                            viewBox="0 0 24 24"
+                                            animate={{ x: [0, 5, 0] }}
+                                            transition={{ 
+                                                duration: 2,
+                                                repeat: Infinity,
+                                                delay: idx * 0.5 
+                                            }}
+                                        >
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                        </motion.svg>
+                                    </motion.div>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
-                
-                {/* Call to Action */}
-                {/* <div className="text-center mt-16">
-                    <div className="inline-flex items-center px-8 py-4 bg-white text-black font-semibold rounded-full shadow-lg hover:shadow-xl hover:bg-gray-200 transform hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-                        <span>Explore All Services</span>
-                        <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                        </svg>
-                    </div>
-                </div> */}
             </div>
         </div>
     );
